@@ -3,9 +3,10 @@
 #pragma once
 
 #include "Engine.h"
-#include "Tank.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
+
+class ATank;
 
 UCLASS()
 class TANKSBATTLE_API ATankAIController : public AAIController
@@ -16,5 +17,6 @@ public:
 	ATank* GetTank() const;
 	ATank*	GetPlayerTank() const;
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 	
 };

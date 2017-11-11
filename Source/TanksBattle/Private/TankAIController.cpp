@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAIController.h"
-
+#include "Tank.h"
 
 ATank* ATankAIController::GetTank() const
 {
@@ -16,24 +16,16 @@ ATank * ATankAIController::GetPlayerTank() const
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	/*auto ControlledTank = GetTank();
-	if (!ControlledTank)
+	
+}
+
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController not possessing"));
+		GetTank()->AimAt(GetPlayerTank()->GetActorLocation());
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController possessing: %s"), *(ControlledTank->GetName()));
-	}
-	auto PlayerTank = GetPlayerTank();
-	if (!PlayerTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Tank not found!"));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Player Tank found!"));
-	}*/
 }
 
 
